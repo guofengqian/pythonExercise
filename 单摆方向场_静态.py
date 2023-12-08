@@ -21,3 +21,7 @@ plt.xlabel(r'$\theta$')
 plt.ylabel(r'$\omega$')
 plt.title('Pendulum Direction Field\n g=9.81, L=1')
 plt.show()
+
+'''
+second modify
+'''
