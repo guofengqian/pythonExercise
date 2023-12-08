@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+# 单摆方向场
 class PendulumDirField:
     def __init__(self, length=1, gravity=3, damping=0.1,
                  theta=np.zeros((16,16)),
@@ -44,8 +45,16 @@ class PendulumDirField:
 # 创建画布figure和四个子图axs
 p1 = PendulumDirField()
 p2 = PendulumDirField()
-frame = [[1,4.1,1],[2,5,1],[3,6,1],[4,7,1],[5,8,1],[6,9,1],[7,10,1]] 
+frame1 = []
+for i in range(10):
+    sub_array = [1+i,9,0.1]
+    frame1.append(sub_array)
+    
+frame2 = []
+for i in range(15):
+    sub_array = [1,1+i,0.1]
+    frame2.append(sub_array)
 
-ani = animation.FuncAnimation(p1.fig, p1.update,frame,interval=500 )
-ani1 = animation.FuncAnimation(p2.fig, p2.update,frame,interval=500 )
+ani = animation.FuncAnimation(p1.fig, p1.update,frame1,interval=500 )
+ani1 = animation.FuncAnimation(p2.fig, p2.update,frame2,interval=500 )
 plt.show()
