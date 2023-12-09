@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from manim import *
 
 # 单摆
 class Pendulum:
@@ -14,14 +15,6 @@ class Pendulum:
         self.dtheta = self.omega
         self.domega = -self.damping*self.dtheta - (self.gravity/self.length)*np.sin(self.theta)
 
-class PendulumDirectionFieldData:
-    def __init__(self,p=Pendulum()):
-        [self.theta, self.omega] = np.meshgrid(
-                            np.linspace(-3*np.pi, 3*np.pi, 16), 
-                            np.linspace(-4, 4, 16)) #16x16的 角度，角速度
-        self.dtheta = self.omega
-        self.domega = -p.damping*self.dtheta - (p.gravity/p.length)*np.sin(self.theta)
-        
 
 # 三个方向场的向量数组 
 pendulumsAry = []
